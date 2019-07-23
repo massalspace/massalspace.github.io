@@ -1,0 +1,108 @@
+/* 
+========================================== 
+FONT
+========================================== 
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+body {
+    margin: 0;
+    font-family: Montserrat, helvetica, sans-serif;
+}
+
+h2,
+h3 {
+    font-weight: 300;
+}
+
+.the-Container {
+
+    display: grid;
+    margin: auto 0px;
+    grid-template-areas:
+        "header header header"
+        "content content content"
+        "footer footer footer";
+
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto auto auto;
+    grid-gap: 10px;
+
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    border: solid 2px red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+main {
+    grid-area: content;
+    border: solid 2px blue;
+}
+
+.MCGrid {
+    margin : auto 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.item-Card {
+    background: grey;
+    border: solid red;
+    height: 250px;
+    width:250px;
+    margin:10px;
+
+}
+
+footer {
+    grid-area: footer;
+    border: solid 2px black;
+}
+
+
+/* 
+========================================== 
+RESPONSIVE
+========================================== 
+*/
+@media (max-width: 768px) {
+    .the-Container {
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+
+        grid-template-columns: 1fr;
+        grid-template-rows:
+            auto
+            /* Header */
+            minmax(75px, auto)
+            /* Nav */
+            1fr
+            /* Content */
+            minmax(75px, auto)
+            /* Sidebar */
+            auto;
+        /* Footer */
+    }
+
+    .MCGrid {
+        grid-template-columns: 1fr;
+    }
+
+    nav,
+    aside {
+        margin: 0;
+    }
+}
